@@ -16,16 +16,23 @@
       "type": "string"
     },
     "slug": {
-      "type": "uid"
-    },
-    "articles": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article",
-      "mappedBy": "category"
+      "type": "uid",
+      "targetField": "name"
     },
     "description": {
       "type": "text"
+    },
+    "news": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::news-item.news-item",
+      "inversedBy": "categories"
+    },
+    "event": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::event.event",
+      "inversedBy": "categories"
     }
   }
 }
